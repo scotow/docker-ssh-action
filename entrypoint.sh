@@ -17,13 +17,13 @@ if [[ -z "$INPUT_REMOTE_SSH_PUBLIC_KEY" ]]; then
     exit 1
 fi
 
-if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
-    echo 'Invalid SSH_PRIVATE_KEY'
+if [[ -z "$INPUT_REMOTE_SSH_PROTO" ]]; then
+    echo 'Invalid INPUT_REMOTE_SSH_PROTO'
     exit 1
 fi
 
-if [[ -z "$INPUT_REMOTE_SSH_PROTO" ]]; then
-    echo 'Invalid INPUT_REMOTE_SSH_PROTO'
+if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
+    echo 'Invalid SSH_PRIVATE_KEY'
     exit 1
 fi
 
