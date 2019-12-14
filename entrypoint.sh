@@ -40,6 +40,7 @@ echo -e "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "$HOME/.ssh/config"
 
 echo "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
 
+echo PRIVATE_KEY:
 cat "$HOME/.ssh/remote"
 
 chmod 400 "$HOME/.ssh/config" "$HOME/.ssh/remote"
