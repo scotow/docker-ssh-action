@@ -40,6 +40,8 @@ echo -e "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "$HOME/.ssh/config"
 
 echo "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
 
+cat "$HOME/.ssh/remote"
+
 chmod 400 "$HOME/.ssh/config" "$HOME/.ssh/remote"
 
 docker -H "ssh://$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" "$@" 2>&1
