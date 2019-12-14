@@ -13,7 +13,10 @@ inputs:
     require: true
   ssh_private_key:
     description: the authorized private key on the remote host
-    require: true            
+    require: true
+  remote_ssh_proto:
+    description: ssh protocol use to verify remote host
+    require: true
 branding:
   color: 'blue'
   icon: 'rss'

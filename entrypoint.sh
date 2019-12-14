@@ -22,14 +22,16 @@ if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
     exit 1
 fi
 
-echo "$INPUT_REMOTE_SSH_PUBLIC_KEY" > /etc/ssh/ssh_known_hosts
+echo -n "$INPUT_REMOTE_HOST"           >  /etc/ssh/ssh_known_hosts
+echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 
 mkdir -p "$HOME/.ssh"
 
-echo -e "Host $INPUT_REMOTE_HOST"       >  "$HOME/.ssh/config"
-echo -e "  HostName $INPUT_REMOTE_HOST" >> "$HOME/.ssh/config"
-echo -e "  User $INPUT_REMOTE_USER"     >> "$HOME/.ssh/config"
-echo -e "  IdentityFile ~/.ssh/remote"  >> "$HOME/.ssh/config"
+echo -e "Host $INPUT_REMOTE_HOST"                       >  "$HOME/.ssh/config"
+echo -e "  HostName $INPUT_REMOTE_HOST"                 >> "$HOME/.ssh/config"
+echo -e "  User $INPUT_REMOTE_USER"                     >> "$HOME/.ssh/config"
+echo -e "  IdentityFile ~/.ssh/remote"                  >> "$HOME/.ssh/config"
+echo -e "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "$HOME/.ssh/config"
 
 echo "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
 
