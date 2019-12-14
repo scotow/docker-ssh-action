@@ -31,6 +31,7 @@ echo -n "$INPUT_REMOTE_HOST "           >  /etc/ssh/ssh_known_hosts
 echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 
 mkdir -p "$HOME/.ssh"
+echo $HOME
 
 echo "Host $INPUT_REMOTE_HOST"                       >  "$HOME/.ssh/config"
 echo "  HostName $INPUT_REMOTE_HOST"                 >> "$HOME/.ssh/config"
