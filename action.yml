@@ -1,0 +1,22 @@
+name: 'docker-ssh-action'
+description: Publish a Docker image to GitHub Package Registry
+author: Hamel Husain
+inputs:
+  remote_host:
+    description: host of the remote docker host
+    require: true
+  remote_user:
+    description: user used to connect to the remote host
+    require: true
+  remote_ssh_public_key:
+    description: ssh public key of the remote host
+    require: true
+  ssh_private_key:
+    description: the authorized private key on the remote host
+    require: true            
+branding:
+  color: 'blue'
+  icon: 'rss'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
