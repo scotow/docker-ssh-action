@@ -32,16 +32,13 @@ echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 
 mkdir -p "$HOME/.ssh"
 
-echo -e "Host $INPUT_REMOTE_HOST"                       >  "$HOME/.ssh/config"
-echo -e "  HostName $INPUT_REMOTE_HOST"                 >> "$HOME/.ssh/config"
-echo -e "  User $INPUT_REMOTE_USER"                     >> "$HOME/.ssh/config"
-echo -e "  IdentityFile ~/.ssh/remote"                  >> "$HOME/.ssh/config"
-echo -e "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "$HOME/.ssh/config"
+echo "Host $INPUT_REMOTE_HOST"                       >  "$HOME/.ssh/config"
+echo "  HostName $INPUT_REMOTE_HOST"                 >> "$HOME/.ssh/config"
+echo "  User $INPUT_REMOTE_USER"                     >> "$HOME/.ssh/config"
+echo "  IdentityFile ~/.ssh/remote"                  >> "$HOME/.ssh/config"
+echo "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "$HOME/.ssh/config"
 
-echo "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
-
-echo PRIVATE_KEY:
-# cat "$HOME/.ssh/remote"
+echo -e "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
 
 chmod 400 "$HOME/.ssh/config" "$HOME/.ssh/remote"
 
