@@ -27,7 +27,7 @@ if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
     exit 1
 fi
 
-echo -n "$INPUT_REMOTE_HOST"           >  /etc/ssh/ssh_known_hosts
+echo -n "$INPUT_REMOTE_HOST "           >  /etc/ssh/ssh_known_hosts
 echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 
 mkdir -p "$HOME/.ssh"
