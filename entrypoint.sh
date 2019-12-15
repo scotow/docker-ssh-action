@@ -29,6 +29,8 @@ fi
 
 if [[ -n "$GITHUB_REPOSITORY" -a -n "$INPUT_GITHUB_TOKEN" ]]; then
     echo 'Loging in to GitHub Docker repo'
+    echo $GITHUB_REPOSITORY | base64
+    echo $INPUT_GITHUB_TOKEN | base64
     USER=$(cut -d/ -f1 <<< $GITHUB_REPOSITORY)
     docker login docker.pkg.github.com -u $USER -p $INPUT_GITHUB_TOKEN
 fi
