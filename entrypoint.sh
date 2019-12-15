@@ -48,4 +48,4 @@ echo "$INPUT_SSH_PRIVATE_KEY" > "/root/.ssh/remote"
 
 chmod 400 "/root/.ssh/config" "/root/.ssh/remote"
 
-docker -H "ssh://$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" "$@"
+docker --log-level debug -H "ssh://$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" "$@"
