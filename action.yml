@@ -15,8 +15,11 @@ inputs:
     description: ssh protocol use to verify remote host
     require: true
   ssh_private_key:
-    description: the authorized private key on the remote host
+    description: authorized private key on the remote host
     require: true
+  github_token:
+    description: github token that will be used to login
+    require: false
 branding:
   color: 'blue'
   icon: 'rss'

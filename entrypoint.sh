@@ -27,7 +27,13 @@ if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
     exit 1
 fi
 
-echo -n "$INPUT_REMOTE_HOST "           >  /etc/ssh/ssh_known_hosts
+if [[ -n "$GITHUB_REPOSITORY" -a -n "$INPUT_GITHUB_TOKEN" ]]; then
+    echo 'Loging in to GitHub Docker repo'
+    USER=$(cut -d/ -f1 <<< $GITHUB_REPOSITORY)
+    docker login docker.pkg.github.com -u $USER -p $INPUT_GITHUB_TOKEN
+fi
+
+echo -n "$INPUT_REMOTE_HOST "          >  /etc/ssh/ssh_known_hosts
 echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 
 mkdir -p "/root/.ssh"
