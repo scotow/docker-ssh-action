@@ -38,11 +38,8 @@ echo "  User $INPUT_REMOTE_USER"                     >> "/root/.ssh/config"
 echo "  IdentityFile ~/.ssh/remote"                  >> "/root/.ssh/config"
 echo "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "/root/.ssh/config"
 
-# printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/remote"
 echo "$INPUT_SSH_PRIVATE_KEY" > "/root/.ssh/remote"
 
 chmod 400 "/root/.ssh/config" "/root/.ssh/remote"
 
-# ssh -v "$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" ls
-
-docker -H "ssh://$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" "$@" 2>&1
+docker -H "ssh://$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST" "$@"
