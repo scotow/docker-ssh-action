@@ -11,9 +11,6 @@ inputs:
   remote_ssh_public_key:
     description: ssh public key of the remote host
     require: true
-  remote_ssh_proto:
-    description: ssh protocol use to verify remote host
-    require: true
   ssh_private_key:
     description: authorized private key on the remote host
     require: true

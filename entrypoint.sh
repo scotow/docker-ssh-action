@@ -17,11 +17,6 @@ if [[ -z "$INPUT_REMOTE_SSH_PUBLIC_KEY" ]]; then
     exit 1
 fi
 
-if [[ -z "$INPUT_REMOTE_SSH_PROTO" ]]; then
-    echo 'Invalid INPUT_REMOTE_SSH_PROTO'
-    exit 1
-fi
-
 if [[ -z "$INPUT_SSH_PRIVATE_KEY" ]]; then
     echo 'Invalid SSH_PRIVATE_KEY'
     exit 1
@@ -42,7 +37,6 @@ echo "Host $INPUT_REMOTE_HOST"                       >  "/root/.ssh/config"
 echo "  HostName $INPUT_REMOTE_HOST"                 >> "/root/.ssh/config"
 echo "  User $INPUT_REMOTE_USER"                     >> "/root/.ssh/config"
 echo "  IdentityFile ~/.ssh/remote"                  >> "/root/.ssh/config"
-echo "  HostKeyAlgorithms $INPUT_REMOTE_SSH_PROTO"   >> "/root/.ssh/config"
 
 echo "$INPUT_SSH_PRIVATE_KEY" > "/root/.ssh/remote"
 
