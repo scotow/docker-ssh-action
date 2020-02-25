@@ -1,6 +1,6 @@
 name: 'docker-ssh-action'
-description: Publish a Docker image to GitHub Package Registry
-author: Hamel Husain
+description: Run a Docker command on a remote engine using SSH authentication
+author: Lopez Benjamin
 inputs:
   remote_host:
     description: host of the remote docker host
