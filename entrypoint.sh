@@ -34,7 +34,7 @@ echo    "$INPUT_REMOTE_SSH_PUBLIC_KEY" >> /etc/ssh/ssh_known_hosts
 mkdir -p "/root/.ssh"
 
 echo "Host $INPUT_REMOTE_HOST"                       >  "/root/.ssh/config"
-echo "  HostName $INPUT_REMOTE_HOST"                 >> "/root/.ssh/config"
+echo "  Hostname $INPUT_REMOTE_HOST"                 >> "/root/.ssh/config"
 echo "  User $INPUT_REMOTE_USER"                     >> "/root/.ssh/config"
 echo "  IdentityFile ~/.ssh/remote"                  >> "/root/.ssh/config"
 
